@@ -5,13 +5,14 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building the project...'
-                sh 'mvn clean package'
+                sh 'chmod +x mvnw'
+                sh './mvnw clean package'
             }
         }
         stage('Test') {
             steps {
                 echo 'Running tests...'
-                sh 'mvn test'
+                sh './mvnw test'
             }
         }
     }
